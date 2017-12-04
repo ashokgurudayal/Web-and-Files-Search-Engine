@@ -10,6 +10,8 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.StringTokenizer;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
 
 import org.tartarus.snowball.ext.PorterStemmer;
 
@@ -92,7 +94,9 @@ public class ButtonClickFunctionalities {
 					String s;
 					while (sc.hasNextLine() ) {
 						s = sc.nextLine();
-						StringTokenizer st = new StringTokenizer(s);
+						
+					
+						StringTokenizer st = new StringTokenizer(s, "\" ,.;:\\\"@!#$%^&*()_\"");
 						while (st.hasMoreTokens()) {
 							words.add(st.nextToken());
 						}
@@ -186,6 +190,7 @@ public class ButtonClickFunctionalities {
 	 */
 	public static String searchString() {
 		getTextFieldValue();
+		
 		return "Enter a Search String above";
 	}
 
