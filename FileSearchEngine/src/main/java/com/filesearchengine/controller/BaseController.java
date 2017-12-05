@@ -30,8 +30,8 @@ public class BaseController {
 	public static String buttonRemoveSpecialCharClicked(){
 		return ButtonClickFunctionalities.removeSpecialChar();
 	}
-	public static String buttonSpellCheckClicked(){
-		return ButtonClickFunctionalities.spellCheck();
+	public static String buttontokenizeSearchStringClicked(){
+		return ButtonClickFunctionalities.tokenizeSearchString();
 	}
 	public static String buttonTfIdfTransformClicked(){
 		return ButtonClickFunctionalities.tfidfTransform();
@@ -41,6 +41,18 @@ public class BaseController {
 	}
 	public static String buttonFindBestMatchedClicked(){
 		return ButtonClickFunctionalities.findBestMatched();
+	}
+	public static String buttonPorterStemmerSearchStringClicked() {
+		// TODO Auto-generated method stub
+		return ButtonClickFunctionalities.PorterStemmerSearchString();
+	}
+	public static String buttonScoreGenerateClicked() {
+		// TODO Auto-generated method stub
+		return ButtonClickFunctionalities.scoreGenerate();
+	}
+	public static String buttonEditDistanceClicked() {
+		// TODO Auto-generated method stub
+		return ButtonClickFunctionalities.editDistanceClicked();
 	}
 	
 

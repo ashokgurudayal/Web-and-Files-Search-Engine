@@ -1,0 +1,2 @@
+https://en.wikipedia.org/wiki/Hash_table
+https://en.wikipedia.org/wiki/Linear_probing

@@ -40,7 +40,6 @@ public class DesktopUI extends JFrame {
 	public static JButton btnTokenize;
 	public static JButton btnPorterStemmer;
 	public static JButton btnInvertedIndex;
-	public static JButton btnSort;
 	public static JButton btnEnterSearchString;
 	public static JButton btnRemoveSpecialChar;
 	public static JButton btnSpellCheck;
@@ -54,6 +53,7 @@ public class DesktopUI extends JFrame {
 	public static JTextArea textArea;
 	public static JPanel panel;
 	public static JPanel panel_1;
+	private JButton btnNewButton_1;
 	/**
 	 * Launch the application.
 	 */
@@ -138,7 +138,7 @@ public class DesktopUI extends JFrame {
 		leftPanel.add(btnAddFilesdir);
 		btnAddFilesdir.setBackground(Color.WHITE);
 		
-		btnTokenize = new JButton("TOKENIZE");
+		btnTokenize = new JButton("LC,REMOVE SC&TOKENIZE");
 		btnTokenize.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				lblEnterSearchString.setVisible(false);
@@ -146,7 +146,7 @@ public class DesktopUI extends JFrame {
 				textArea.setText(BaseController.buttonTokenizeClicked());;
 			}
 		});
-		btnTokenize.setBounds(15, 295, 210, 52);
+		btnTokenize.setBounds(15, 298, 210, 52);
 		leftPanel.add(btnTokenize);
 		btnTokenize.setBackground(Color.WHITE);
 		
@@ -158,7 +158,7 @@ public class DesktopUI extends JFrame {
 				textArea.setText(BaseController.buttonPorterStemmerClicked());;
 			}
 		});
-		btnPorterStemmer.setBounds(15, 363, 210, 52);
+		btnPorterStemmer.setBounds(15, 357, 210, 52);
 		btnPorterStemmer.setBackground(Color.WHITE);
 		leftPanel.add(btnPorterStemmer);
 		
@@ -170,21 +170,9 @@ public class DesktopUI extends JFrame {
 				textArea.setText(BaseController.buttonInvertedIndexClicked());;
 			}
 		});
-		btnInvertedIndex.setBounds(15, 431, 210, 52);
+		btnInvertedIndex.setBounds(15, 425, 210, 52);
 		leftPanel.add(btnInvertedIndex);
 		btnInvertedIndex.setBackground(Color.WHITE);
-		
-		btnSort = new JButton("SORT");
-		btnSort.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				lblEnterSearchString.setVisible(false);
-				textField.setVisible(false);
-				textArea.setText(BaseController.buttonSortClicked());;
-			}
-		});
-		btnSort.setBounds(15, 499, 210, 46);
-		leftPanel.add(btnSort);
-		btnSort.setBackground(Color.WHITE);
 		
 		btnEnterSearchString = new JButton("SEARCH STRING");
 		btnEnterSearchString.setBackground(Color.WHITE);
@@ -195,10 +183,10 @@ public class DesktopUI extends JFrame {
 				textArea.setText(BaseController.buttonSearchStringClicked());;
 			}
 		});
-		btnEnterSearchString.setBounds(240, 81, 210, 52);
+		btnEnterSearchString.setBounds(240, 16, 210, 52);
 		leftPanel.add(btnEnterSearchString);
 		
-		btnRemoveSpecialChar = new JButton("REMOVE SPECIAL CHAR");
+		btnRemoveSpecialChar = new JButton("LC AND REMOVE SC");
 		btnRemoveSpecialChar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				lblEnterSearchString.setVisible(true);
@@ -207,19 +195,19 @@ public class DesktopUI extends JFrame {
 			}
 		});
 		btnRemoveSpecialChar.setBackground(Color.WHITE);
-		btnRemoveSpecialChar.setBounds(240, 159, 210, 52);
+		btnRemoveSpecialChar.setBounds(240, 91, 210, 52);
 		leftPanel.add(btnRemoveSpecialChar);
 		
-		btnSpellCheck = new JButton("SPELL CHECK");
+		btnSpellCheck = new JButton("TOKENIZE");
 		btnSpellCheck.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				lblEnterSearchString.setVisible(true);
 				textField.setVisible(true);
-				textArea.setText(BaseController.buttonSpellCheckClicked());;
+				textArea.setText(BaseController.buttontokenizeSearchStringClicked());;
 			}
 		});
 		btnSpellCheck.setBackground(Color.WHITE);
-		btnSpellCheck.setBounds(240, 227, 210, 52);
+		btnSpellCheck.setBounds(240, 159, 210, 52);
 		leftPanel.add(btnSpellCheck);
 		
 		btnTfidfTransform = new JButton("TF-IDF TRANSFORM");
@@ -231,7 +219,7 @@ public class DesktopUI extends JFrame {
 			}
 		});
 		btnTfidfTransform.setBackground(Color.WHITE);
-		btnTfidfTransform.setBounds(240, 295, 210, 52);
+		btnTfidfTransform.setBounds(240, 364, 210, 52);
 		leftPanel.add(btnTfidfTransform);
 		
 		btnWordOccurence = new JButton("WORD OCCURENCE");
@@ -243,7 +231,7 @@ public class DesktopUI extends JFrame {
 			}
 		});
 		btnWordOccurence.setBackground(Color.WHITE);
-		btnWordOccurence.setBounds(240, 364, 210, 52);
+		btnWordOccurence.setBounds(240, 423, 210, 52);
 		leftPanel.add(btnWordOccurence);
 		
 		btnFindBestMatched = new JButton("FIND BEST MATCHED");
@@ -255,7 +243,7 @@ public class DesktopUI extends JFrame {
 			}
 		});
 		btnFindBestMatched.setBackground(Color.WHITE);
-		btnFindBestMatched.setBounds(240, 431, 210, 114);
+		btnFindBestMatched.setBounds(240, 553, 210, 52);
 		leftPanel.add(btnFindBestMatched);
 		
 		panel = new JPanel();
@@ -296,7 +284,45 @@ public class DesktopUI extends JFrame {
 		lblEnterSearchString.setVisible(false);
 		textField.setVisible(false);
 		contentPane.setLayout(gl_contentPane);
+		textArea.setLineWrap(true);
+		textArea.setWrapStyleWord(true);
 		
+		JButton btnPorterStemmer_1 = new JButton("PORTER STEMMER");
+		btnPorterStemmer_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				lblEnterSearchString.setVisible(true);
+				textField.setVisible(true);
+				textArea.setText(BaseController.buttonPorterStemmerSearchStringClicked());
+			}
+		});
+		btnPorterStemmer_1.setBounds(240, 298, 210, 52);
+		leftPanel.add(btnPorterStemmer_1);
+		btnPorterStemmer_1.setBackground(Color.WHITE);
+		
+		btnNewButton_1 = new JButton("SCORE GENERATE");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				lblEnterSearchString.setVisible(true);
+				textField.setVisible(true);
+				textArea.setText(BaseController.buttonScoreGenerateClicked());
+				
+			}
+		});
+		btnNewButton_1.setBounds(240, 491, 210, 52);
+		btnNewButton_1.setBackground(Color.WHITE);
+		leftPanel.add(btnNewButton_1);
+		
+		JButton btnEditDistance = new JButton("EDIT DISTANCE");
+		btnEditDistance.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				lblEnterSearchString.setVisible(true);
+				textField.setVisible(true);
+				textArea.setText(BaseController.buttonEditDistanceClicked());
+;			}
+		});
+		btnEditDistance.setBackground(Color.WHITE);
+		btnEditDistance.setBounds(240, 228, 210, 52);
+		leftPanel.add(btnEditDistance);
 	}
 }
 class ImagePanel extends JPanel {
